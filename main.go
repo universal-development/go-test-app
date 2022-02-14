@@ -26,7 +26,7 @@ func main() {
 		}
 	})
 
-	listenAddress := xenv.Env("LISTEN_ADDRESS", "")
+	listenAddress := xenv.Env("LISTEN_ADDRESS", "0.0.0.0")
 	listenPort := xenv.Env("LISTEN_PORT", "8080")
 	log.Printf("Starting HTTP server on %s:%s", listenAddress, listenPort)
 	log.Fatal(http.ListenAndServe(fmt.Sprintf("%s:%s", listenAddress, listenPort), nil))
