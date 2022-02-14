@@ -14,6 +14,7 @@ func main() {
 
 	// simple handler that prints hostname, requested path and env variables
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		log.Println("Handling request")
 		hostname, err := os.Hostname()
 		if err != nil {
 			log.Printf("%v", err)
