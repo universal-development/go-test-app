@@ -1,3 +1,5 @@
+SHELL := /bin/bash
+
 GO_FILES?=$$(find . -name '*.go' | grep -v vendor)
 
 .PHONY: build
@@ -5,6 +7,11 @@ GO_FILES?=$$(find . -name '*.go' | grep -v vendor)
 build:
 	@echo "Building app"
 	go build
+
+container: build
+	@echo "Building container"
+	$(eval TAG:=$(shell git describe --tags --abbrev=12 --dirty --broken))
+	docker build . -t "go-test-app:$(TAG)"
 
 fmt:
 	@echo "Formatting files"
