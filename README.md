@@ -15,5 +15,33 @@ Environment variables:
 
 Run application as container:
 ```
-docker run -p 8080:8080 go-test-app:local
+docker run -p 8080:8080 denis256/go-test-app:v0.0.2
+```
+
+Run application as deployment
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-app
+  labels:
+    app: test-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-app
+  template:
+    metadata:
+      labels:
+        app: test-app
+    spec:
+      containers:
+      - name: test-app
+        image: denis256/go-test-app:v0.0.2
+        env:
+        - name: LISTEN_PORT
+          value: "9000"
+        ports:
+        - containerPort: 9000
 ```
