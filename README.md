@@ -15,10 +15,10 @@ Environment variables:
 
 Run application as container:
 ```
-docker run -p 8080:8080 denis256/go-test-app:v0.0.2
+docker run -p 8080:8080 denis256/go-test-app:v0.0.3
 ```
 
-Run application as deployment
+Run application as deployment in Kubernetes:
 ```
 apiVersion: apps/v1
 kind: Deployment
@@ -38,7 +38,7 @@ spec:
     spec:
       containers:
       - name: test-app
-        image: denis256/go-test-app:v0.0.2
+        image: denis256/go-test-app:v0.0.3
         env:
         - name: LISTEN_PORT
           value: "9000"
