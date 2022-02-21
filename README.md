@@ -18,7 +18,7 @@ Environment variables:
 
 Run application as container:
 ```
-docker run -p 8080:8080 denis256/go-test-app:v0.0.3
+docker run -p 8080:8080 denis256/go-test-app:v0.0.4
 ```
 
 Run application as deployment in Kubernetes:
@@ -41,7 +41,7 @@ spec:
     spec:
       containers:
       - name: test-app
-        image: denis256/go-test-app:v0.0.3
+        image: denis256/go-test-app:v0.0.4
         env:
         - name: LISTEN_PORT
           value: "9000"
