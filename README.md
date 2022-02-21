@@ -5,6 +5,9 @@ Test application to verify environment deployment and reachability over HTTP.
 Environment variables:
   * `LISTEN_ADDRESS` - listen address, `0.0.0.0` by default
   * `LISTEN_PORT` - listen port for requests, `8080` by default
+  * `APP_NAME` - name of application printed in output
+  * `HTTP_RESPONSE_CODE` - returned HTTP response code, 200 by default
+  * `PROCESSING_SLEEP` - block processing of request for specified ms, 0 by default
 
 ## Build
 
