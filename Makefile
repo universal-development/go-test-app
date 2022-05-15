@@ -8,7 +8,7 @@ build:
 	@echo "Building app"
 	go build
 
-container: build
+container:
 	@echo "Building container"
 	$(eval TAG:=$(shell git describe --tags --abbrev=12 --dirty --broken))
 	docker build . -t "go-test-app:$(TAG)"
